@@ -12,4 +12,4 @@ do
 	fi
 done
 
-$HOME/bin/subl -w $args $filenames
+$HOME/bin/subl $args $filenames

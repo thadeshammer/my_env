@@ -6,7 +6,7 @@
 	default = matching
 [core]
 	trustctime = false
-	editor = subl
+	editor = "~/bin/subl.exe -w"
 	filemode = false
 [color]
 	ui = true
