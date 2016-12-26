@@ -7,9 +7,9 @@ do
 	if [[ ${var:0:1} == "-" ]]; then
 		args="$args $var"
 	else
-		targetfile=$(cygpath -ua "$var")
+		targetfile=$(cygpath -wa "$var")
 		filenames="$filenames $targetfile"
 	fi
 done
 
-$HOME/bin/subl $args $filenames
+$HOME/bin/subl -w $args $filenames
