@@ -48,6 +48,7 @@ DISABLE_AUTO_UPDATE="true"
 plugins=(	history history-substring-search
 			colorize colored-man-pages
 			z cp dirpersist copydir
+			zsh-navigation-tools zsh_reload
 			k zsh-syntax-highlighting
 		)
 
@@ -104,6 +105,9 @@ alias sr='screen -r'
 alias sls='screen -ls'
 alias sh=bash
 alias dirs='dirs -v'
+
+alias n-h='n-history'
+alias n-ls='n-panelize ls'
 
 # source shell script to add autocomplete to git commands
 # I don't think I need this with powerlevel9k
