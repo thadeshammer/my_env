@@ -1,0 +1,21 @@
+[user]
+	name = Steve Hannum
+	email = shannum@cogitocorp.com
+[core]
+	editor = subl -w
+[push]
+	default = current
+[merge]
+	tool = extMerge.sh
+[mergetool "extMerge.sh"]
+	cmd = extMerge.sh "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+	trustExitCode = false
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = true
+	pager = true
+[diff]
+	external = extDiff
