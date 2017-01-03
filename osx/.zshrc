@@ -74,7 +74,7 @@ DEFAULT_USER="shannum"
 # Puppet's a big player in Vagrant town.
 #
 
-( eval "~/git/modula/Cogito/Toolset/Modula/BUILD/bin/modula init > /Users/shannum/logs/bash_profile.log 2>&1" )
+# ( eval "~/git/modula/Cogito/Toolset/Modula/BUILD/bin/modula init > /Users/shannum/logs/bash_profile.log 2>&1" )
 
 export ANT_HOME=/usr/local/bin/ant
 export PUPPET_DIR=/Users/shannum/git/puppet
@@ -114,15 +114,9 @@ export HISTFILESIZE=10000
 setopt HISTAPPEND
 
 # -X for not clearing the screen when you exit less, and -r for colors
-#
-# NOTE -r/R don't seem to work for colors :\; need to prepend CLICOLORS_FORCE=1
-# I'm trying here to export CLICOLORS_FORCE=1 but that doesn't work either;
-# only works if I *explicitly prepend* it, e.g.
-#
-#   [1] > CLICOLORS_FORCE=1 ls -l | less
-#
-export CLICOLORS_FORCE=1
+# We get colors via pygmentize (which I needed to pip install)
 export LESS=-Xr
+export LESSOPEN='|pygmentize -g %s'
 
 export EDITOR='subl -w'
 
