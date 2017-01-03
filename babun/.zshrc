@@ -41,7 +41,7 @@ POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='027'
 DISABLE_AUTO_UPDATE="true"
 
 # favorite plugins I've picked up
-# git clone https://github.com/supercrabtree/k $HOME/.oh-my-zsh/custom/plugins/k $HOME/.oh-my-zsh/custom/plugins/k
+# git clone https://github.com/supercrabtree/k $HOME/.oh-my-zsh/custom/plugins/k
 # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 # git clone https://github.com/srijanshetty/zsh-pandoc-completion.git ./zsh-pandoc-completion
 
