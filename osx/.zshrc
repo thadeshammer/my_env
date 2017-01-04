@@ -78,21 +78,14 @@ DEFAULT_USER="shannum"
 # Puppet's a big player in Vagrant town.
 #
 
-# ( eval "~/git/modula/Cogito/Toolset/Modula/BUILD/bin/modula init > /Users/shannum/logs/bash_profile.log 2>&1" )
+( eval "~/git/modula/Cogito/Toolset/Modula/BUILD/bin/modula init > /Users/shannum/logs/bash_profile.log 2>&1" )
 
 export ANT_HOME=/usr/local/bin/ant
 export PUPPET_DIR=/Users/shannum/git/puppet
 export MODULA_DIR=/Users/shannum/git/modula/Cogito/Toolset/Modula/BUILD/bin/
 
 PATH="/Users/shannum/perl5/bin${PATH:+:${PATH}}"; export PATH;
-
 export PATH=$MODULA_DIR:$PATH
-
-PERL5LIB="/Users/shannum/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/shannum/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/shannum/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/shannum/perl5"; export PERL_MM_OPT;
-
 export PATH="$HOME/bin:$PATH"
 
 # Currently I'm getting subl in my env w/o using this export.
@@ -176,3 +169,10 @@ source ~/.zsh_support/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ZSH_HIGHLIGHT_STYLES[globbing]=fg=cyan,bold
 ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=cyan,bold
+
+# Added by YAML::XS install. See:
+# https://confluence.cogitocorp.com/pages/viewpage.action?spaceKey=ENG&title=Development+Environment+Setup+for+New+Engineers
+PERL5LIB="/Users/shannum/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/shannum/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/shannum/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/shannum/perl5"; export PERL_MM_OPT;
