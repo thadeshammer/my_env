@@ -129,6 +129,7 @@ export GROOVY_HOME=/usr/local/opt/groovy/libexec
 alias gw="./gradlew"
 alias gwx="gw -x vagrantprovisioncustom -x vagrantboxupdate -x loadhealthkingusers -x loadhealthkingtypes -x loadhealthkingcalls"
 alias gwdeps="gw generateLock saveLock --refresh-dependencies"
+alias gwe="gw cleanEclipse eclipse"
 
 alias grep='grep -HEn --color'
 
