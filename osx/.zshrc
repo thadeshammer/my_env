@@ -13,8 +13,10 @@ POWERLEVEL9K_STATUS_VERBOSE=true
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_logo status dir)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs)
 
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭─"
-POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="╰─"
+# POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭─"
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+# POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="╰─"
+POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="▷ "
 
 POWERLEVEL9K_DIR_PATH_SEPARATOR=" "$'\uE0B1'" "
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
@@ -174,3 +176,5 @@ source ~/.zsh_support/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_STYLES[globbing]=fg=cyan,bold
 ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=cyan,bold
 
+# Haven't put time into figuring out why this (mostly repetitive and weirdly placed) export appeared here, but without it shit breaks.
+export PATH="/Users/shannum/.rbenv/shims:/Users/shannum/bin:/Users/shannum/git/modula/Cogito/Toolset/Modula/BUILD/bin/:/Users/shannum/perl5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Users/shannum/local/arcanist/bin/"
