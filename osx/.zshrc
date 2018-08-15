@@ -60,7 +60,6 @@ plugins=(	osx
 			zsh-navigation-tools
 			k zsh-syntax-highlighting
 			nyan
-			gradle
 		)
 
 # User configuration
@@ -89,9 +88,14 @@ export ANT_HOME=/usr/local/bin/ant
 export PUPPET_DIR=/Users/shannum/git/puppet
 export MODULA_DIR=/Users/shannum/git/modula/Cogito/Toolset/Modula/BUILD/bin/
 
-PATH="/Users/shannum/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PATH="/Users/shannum/.rbenv/shims:/Users/shannum/perl5/bin${PATH:+:${PATH}}"; export PATH;
+
+export PATH="$PATH:/Users/shannum/bin:/Users/shannum/git/modula/Cogito/Toolset/Modula/BUILD/bin/:/Users/shannum/perl5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Users/shannum/local/arcanist/bin/"
+
 export PATH=$MODULA_DIR:$PATH
 export PATH="$HOME/bin:$PATH"
+
+export M2_REPO="/Users/shannum/.m2/repository"
 
 # Currently I'm getting subl in my env w/o using this export.
 # subl's on the path.
@@ -117,8 +121,10 @@ setopt HISTAPPEND
 
 # -X for not clearing the screen when you exit less, and -r for colors
 # We get colors via pygmentize (which I needed to pip install)
-export LESS=-Xr
-export LESSOPEN='|pygmentize -g %s'
+export LESS=Xr
+# NOTE. I've disabled this as it's never really useful (highlighting
+# numbers and C reserved words makes for confusing log readouts.)
+# export LESSOPEN='|pygmentize -g %s'
 
 export EDITOR='subl -w'
 
@@ -133,7 +139,8 @@ alias gwx="gw -x vagrantprovisioncustom -x vagrantboxupdate -x loadhealthkinguse
 alias gwdeps="gw generateLock saveLock --refresh-dependencies"
 alias gwe="gw cleanEclipse eclipse"
 
-alias grep='grep -HEn --color'
+# alias grep='grep -HEn --color'
+alias grep='grep --color'
 
 alias ls='ls -GFh'
 
@@ -161,6 +168,8 @@ alias sls='screen -ls'
 alias sh=bash
 alias dirs='dirs -v'
 
+alias arcdiff='arc diff --no-amend master'
+
 pdiff () {
 	# because you can't alias and get "$@" & to work.
 	/Applications/p4merge.app/Contents/MacOS/p4merge "$@" &
@@ -169,12 +178,14 @@ pdiff () {
 # Arcanist is (I believe) a Phabricator wrapper script; I haven't used it yet.
 # This is a remnant from ggodard's bashrc file I adopted.
 # add arcanist to path
-# export PATH=~/local/arcanist/bin:$PATH
+export PATH="$PATH:~/arcanist/arcanist/bin"
 
 source ~/.zsh_support/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ZSH_HIGHLIGHT_STYLES[globbing]=fg=cyan,bold
 ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=cyan,bold
 
-# Haven't put time into figuring out why this (mostly repetitive and weirdly placed) export appeared here, but without it shit breaks.
-export PATH="/Users/shannum/.rbenv/shims:/Users/shannum/bin:/Users/shannum/git/modula/Cogito/Toolset/Modula/BUILD/bin/:/Users/shannum/perl5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Users/shannum/local/arcanist/bin/"
+# # Haven't put time into figuring out why this (mostly repetitive and weirdly placed) export appeared here, but without it shit breaks.
+# export PATH="$PATH:/Users/shannum/.rbenv/shims:/Users/shannum/bin:/Users/shannum/git/modula/Cogito/Toolset/Modula/BUILD/bin/:/Users/shannum/perl5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Users/shannum/local/arcanist/bin/"
+
+eval "$(register-python-argcomplete cloudgito)"

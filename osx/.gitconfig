@@ -19,3 +19,5 @@
 	pager = true
 [diff]
 	external = extDiff
+[alias]
+	create-pull-request = !sh -c 'stash pull-request $0 $@'
