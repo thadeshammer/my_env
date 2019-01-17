@@ -16,7 +16,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs)
 # POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭─"
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 # POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="╰─"
-POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="▷ "
+POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="▷▷ "
 
 POWERLEVEL9K_DIR_PATH_SEPARATOR=" "$'\uE0B1'" "
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
@@ -66,7 +66,6 @@ plugins=(	osx
 
 source $ZSH/oh-my-zsh.sh
 
-ssh
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 
 # start an ssh agent for vagrant
@@ -188,4 +187,6 @@ ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=cyan,bold
 # # Haven't put time into figuring out why this (mostly repetitive and weirdly placed) export appeared here, but without it shit breaks.
 # export PATH="$PATH:/Users/shannum/.rbenv/shims:/Users/shannum/bin:/Users/shannum/git/modula/Cogito/Toolset/Modula/BUILD/bin/:/Users/shannum/perl5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Users/shannum/local/arcanist/bin/"
 
-eval "$(register-python-argcomplete cloudgito)"
+# Something jcarter had as part of the cloudgito install; not sure of its use, but it never worked for me
+# See: https://github.com/kislyuk/argcomplete/blob/master/scripts/register-python-argcomplete
+# eval $(register-python-argcomplete cloudgito)
