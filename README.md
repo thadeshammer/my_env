@@ -3,14 +3,5 @@ My personal environment
 So I can easily port this stuff between rigs.
 (You do this too, right?)
 
-*** Babun/Cygwin ***
-
-Something about the git-hook mechanism causes Sublime (when its the editor)
-to treat the cygwin home dir as if it's based under c:\ which prevents it
-from working. The fix was to give it what it wanted by creating a symlink
-in Windows town.
-
-> mklink /j c:\home "C:\Users\USERNAME\.babun\cygwin\home"
-
-Probably could also mess around with setting the GIT_DIR but that can get
-dicey, so I went with this.
+I've moved on from using Sublime as the default editor in Windows/WSL due to wonky pathing issues,
+but may still do so in proper Linux and OSX. WSL just plays more nicely with VSCode.
