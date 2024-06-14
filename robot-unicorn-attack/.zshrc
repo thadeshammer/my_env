@@ -142,3 +142,11 @@ export PYTHONPATH=$PYTHONPATH:/home/thades/.local/lib/$PYTHON/site-packages
 alias less="less -X"
 alias more="less -X"
 alias fzf="fzf --preview='cat {}'"
+
+# Start SSH agent if not running
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+  eval $(ssh-agent -s)
+fi
+
+# Add SSH key if not already added
+ssh-add -l | grep "The agent has no identities" && ssh-add ~/.ssh/id_rsa
