@@ -124,6 +124,10 @@ compinit
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# allow the jump down due to slow start-time
+# https://github.com/romkatv/powerlevel10k/blob/master/README.md#instant-prompt
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
 # a good reference too: https://gist.github.com/leodutra/a6cebe11db5414cdaedc6e75ad194a00
 
 # Python 3.10 is default, 3.11 is from a 3rd party repo because weeeeeee linux
@@ -142,11 +146,12 @@ export PYTHONPATH=$PYTHONPATH:/home/thades/.local/lib/$PYTHON/site-packages
 alias less="less -X"
 alias more="less -X"
 alias fzf="fzf --preview='cat {}'"
+alias pytest="pytest -s"
 
-# Start SSH agent if not running
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-  eval $(ssh-agent -s)
-fi
 
-# Add SSH key if not already added
-ssh-add -l | grep "The agent has no identities" && ssh-add ~/.ssh/id_rsa
+# Pytest Warning stuff
+export SQLALCHEMY_SILENCE_UBER_WARNING=1
+export CERT_PASSKEY=$(cat ~/.cert_passkey)
+
+eval $(ssh-agent -s)
+eval `keychain --eval --agents ssh id_ed25519`
