@@ -137,11 +137,21 @@ alias python=$PYTHON
 alias py=$PYTHON
 alias python3=$PYTHON
 
-export KIVY_DEPS_ROOT=$(pwd)/kivy-dependencies
+# VIRTUAL ENV STUFF
+# If using oh-my-zsh
+export VIRTUAL_ENV_DISABLE_PROMPT=0
+# Enable virtualenvwrapper if you use it
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+alias activate="source .venv/bin/activate"
 
 export PATH=$PATH:$HOME/.local/bin
 
-export PYTHONPATH=$PYTHONPATH:/home/thades/.local/lib/$PYTHON/site-packages
+# I may need this set for some old projects, but this was breaking venv functionality
+# export PYTHONPATH=$PYTHONPATH:/home/thades/.local/lib/$PYTHON/site-packages
+
+# https://kivy.org
+export KIVY_DEPS_ROOT=$(pwd)/kivy-dependencies
 
 alias less="less -X"
 alias more="less -X"
@@ -149,9 +159,13 @@ alias fzf="fzf --preview='cat {}'"
 alias pytest="pytest -s"
 
 
-# Pytest Warning stuff
+# Pytest stuff
 export SQLALCHEMY_SILENCE_UBER_WARNING=1
+export ENVIRONMENT="pytest"
+
+# for servers using my cert
 export CERT_PASSKEY=$(cat ~/.cert_passkey)
 
 eval $(ssh-agent -s)
 eval `keychain --eval --agents ssh id_ed25519`
+
