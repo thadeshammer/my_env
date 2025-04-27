@@ -16,7 +16,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -122,7 +122,7 @@ compinit
 # source $HOME/k/k.sh  This is in plugins above
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # allow the jump down due to slow start-time
 # https://github.com/romkatv/powerlevel10k/blob/master/README.md#instant-prompt
@@ -144,11 +144,6 @@ alias pip3="pip$VERSION"
 
 alias pytest='python -m pytest'
 
-#PYTHON=python$VERSION
-# alias python=$PYTHON
-# alias py=$PYTHON
-# alias python3=$PYTHON
-
 # VIRTUAL ENV STUFF
 # If using oh-my-zsh
 export VIRTUAL_ENV_DISABLE_PROMPT=0
@@ -161,9 +156,6 @@ alias activate="source .venv/bin/activate"
 
 export PATH=$PATH:$HOME/.local/bin
 
-# I may need this set for some old projects, but this was breaking venv functionality
-# export PYTHONPATH=$PYTHONPATH:/home/thades/.local/lib/$PYTHON/site-packages
-
 # https://kivy.org
 export KIVY_DEPS_ROOT=$(pwd)/kivy-dependencies
 
@@ -173,11 +165,6 @@ alias fzf="fzf --preview='cat {}'"
 alias pytest="pytest -s"
 alias clip="clip.exe"
 alias pbcopy="clip.exe"
-
-
-# Pytest stuff
-export SQLALCHEMY_SILENCE_UBER_WARNING=1
-export ENVIRONMENT="pytest"
 
 # neovim
 export PATH="$PATH:/opt/nvim/"
@@ -194,3 +181,5 @@ eval `keychain --eval --agents ssh id_ed25519`
 export TERM="xterm-256color"
 export COLORTERM="truecolor"
 
+# trying out starship. to toggle back to p10k, uncomment the source p10k line and the ZSH_THEME line (two lines!)
+eval "$(starship init zsh)"
