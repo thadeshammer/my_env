@@ -131,18 +131,32 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 # a good reference too: https://gist.github.com/leodutra/a6cebe11db5414cdaedc6e75ad194a00
 
 # Python 3.10 is default, 3.11 is from a 3rd party repo because weeeeeee linux
-VERSION="3.11"
-PYTHON=python$VERSION
-alias python=$PYTHON
-alias py=$PYTHON
-alias python3=$PYTHON
+# update 2025-04-22 I built 3.12 from source
+VERSION="3.12"
+alias pybase="python$VERSION"
+
+alias python="python"
+alias py="python"
+alias python3="python"
+
+alias pip="pip$VERSION"
+alias pip3="pip$VERSION"
+
+alias pytest='python -m pytest'
+
+#PYTHON=python$VERSION
+# alias python=$PYTHON
+# alias py=$PYTHON
+# alias python3=$PYTHON
 
 # VIRTUAL ENV STUFF
 # If using oh-my-zsh
 export VIRTUAL_ENV_DISABLE_PROMPT=0
+
 # Enable virtualenvwrapper if you use it
+export VIRTUALENVWRAPPER_PYTHON="python$VERSION"
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+source /home/thades/.local/bin/virtualenvwrapper.sh
 alias activate="source .venv/bin/activate"
 
 export PATH=$PATH:$HOME/.local/bin
@@ -157,15 +171,26 @@ alias less="less -X"
 alias more="less -X"
 alias fzf="fzf --preview='cat {}'"
 alias pytest="pytest -s"
+alias clip="clip.exe"
+alias pbcopy="clip.exe"
 
 
 # Pytest stuff
 export SQLALCHEMY_SILENCE_UBER_WARNING=1
 export ENVIRONMENT="pytest"
 
+# neovim
+export PATH="$PATH:/opt/nvim/"
+export EDITOR=nvim
+export VISUAL=nvim
+
 # for servers using my cert
 export CERT_PASSKEY=$(cat ~/.cert_passkey)
 
 eval $(ssh-agent -s)
 eval `keychain --eval --agents ssh id_ed25519`
+
+# for tmux
+export TERM="xterm-256color"
+export COLORTERM="truecolor"
 
