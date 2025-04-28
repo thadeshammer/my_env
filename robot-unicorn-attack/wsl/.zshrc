@@ -181,5 +181,12 @@ eval `keychain --eval --agents ssh id_ed25519`
 export TERM="xterm-256color"
 export COLORTERM="truecolor"
 
+# Unbind Ctrl-H/J/K/L
+# Don't forget unbinding in .inputrc too
+bindkey -r "^H"
+bindkey -r "^J"
+bindkey -r "^K"
+bindkey -r "^L"
+
 # trying out starship. to toggle back to p10k, uncomment the source p10k line and the ZSH_THEME line (two lines!)
 eval "$(starship init zsh)"

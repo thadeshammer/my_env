@@ -1,5 +1,5 @@
 format = """
-[   ](fg:#FFFF00 bg:#5a49ae)\
+[    ](fg:#FFFF00 bg:#5a49ae)\
 [](fg:#402288)\
 $directory\
 $python\
@@ -17,7 +17,7 @@ success_symbol = "[%](#22FF00)"
 error_symbol = "[!](#FF2200)"
 
 [directory]
-style = "fg:#00DDDD"
+style = "bold fg:#00DDDD"
 format = "[ $path ]($style)"
 truncation_length = 6 
 truncation_symbol = "…/"
