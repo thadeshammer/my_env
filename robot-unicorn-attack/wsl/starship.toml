@@ -1,7 +1,3 @@
-
-# [   ](fg:#FFFF00 bg:#5a49ae)\
-# [](fg:#402288)\
-
 format = """
 [   ](fg:#FFFF00 bg:#5a49ae)\
 [](fg:#402288)\
@@ -18,13 +14,14 @@ $time\
 
 [character]
 success_symbol = "[%](#22FF00)"
-error_symbol = "[%](#FF2200)"
+error_symbol = "[!](#FF2200)"
 
 [directory]
-style = "fg:#e3e5e5"
+style = "fg:#00DDDD"
 format = "[ $path ]($style)"
-truncation_length = 3
+truncation_length = 6 
 truncation_symbol = "…/"
+truncate_to_repo = false
 
 [git_branch]
 symbol = ""
