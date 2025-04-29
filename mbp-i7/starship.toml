@@ -1,0 +1,60 @@
+format = """
+[  󱎓  ](fg:#FFFF00 bg:#5a49ae)\
+[](fg:#402288)\
+$directory\
+$python\
+$git_branch\
+$git_status\
+$nodejs\
+$rust\
+$golang\
+$php\
+$time\
+\n$character"""
+
+[character]
+success_symbol = "[%](#22FF00)"
+error_symbol = "[!](#FF2200)"
+
+[directory]
+style = "bold fg:#00DDDD"
+format = "[ $path ]($style)"
+truncation_length = 6 
+truncation_symbol = "…/"
+truncate_to_repo = false
+
+[git_branch]
+symbol = ""
+style = "none"
+format = '\[[[ $symbol $branch ](fg:#769ff0)]($style)'
+
+[git_status]
+style = "none"
+format = '[[($all_status$ahead_behind )](fg:#769ff0)\]]($style)'
+
+[python]
+symbol = ""
+style = "none"
+format = '[[\[ $symbol $virtualenv\]](fg:#009ff0)]($style)'
+
+[nodejs]
+symbol = ""
+style = "none"
+format = '[[\[$symbol ($version)\]](fg:#769ff0)]($style)'
+
+[rust]
+symbol = ""
+style = "none"
+format = '[[\[$symbol ($version)\]](fg:#769ff0)]($style)'
+
+[golang]
+symbol = ""
+style = "none"
+format = '[[\[$symbol ($version)\]](fg:#769ff0)]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+# time_format = "%R" # Hour:Minute Format
+style = "none"
+format = '[[  $time ](fg:#a0a9cb)]($style)'
