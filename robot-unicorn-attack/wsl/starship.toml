@@ -35,7 +35,7 @@ format = '[[($all_status$ahead_behind )](fg:#769ff0)\]]($style)'
 [python]
 symbol = ""
 style = "none"
-format = '[[\[ $symbol $virtualenv \]](fg:#009ff0)]($style)'
+format = '[[\[ $symbol \($version\) $virtualenv \]](fg:#009ff0)]($style)'
 
 [nodejs]
 symbol = ""
