@@ -88,14 +88,16 @@ alias pytest='python -m pytest'
 # VIRTUAL ENV STUFF
 # If using oh-my-zsh
 export VIRTUAL_ENV_DISABLE_PROMPT=0
-
-# Enable virtualenvwrapper if you use it
-export VIRTUALENVWRAPPER_PYTHON="python$VERSION"
 export WORKON_HOME=$HOME/.virtualenvs
-source /home/thades/.local/bin/virtualenvwrapper.sh
 alias activate="source .venv/bin/activate"
 
-export PATH=$PATH:$HOME/.local/bin
+# Enable virtualenvwrapper if you use it
+if [ -z "$VIRTUAL_ENV" ]; then
+    export VIRTUALENVWRAPPER_PYTHON="python$VERSION"
+    source /home/thades/.local/bin/virtualenvwrapper.sh
+fi
+
+export PATH=$PATH:$HOME/.local/bin:/snap/bin
 
 # https://kivy.org
 export KIVY_DEPS_ROOT=$(pwd)/kivy-dependencies
