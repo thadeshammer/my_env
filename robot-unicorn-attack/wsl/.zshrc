@@ -117,8 +117,15 @@ export VISUAL=nvim
 # for servers using my cert
 export CERT_PASSKEY=$(cat ~/.cert_passkey)
 
-eval $(ssh-agent -s)
-eval `keychain --eval --agents ssh id_ed25519`
+# if WSL-side has control of ssh agent
+# eval $(ssh-agent -s)
+# eval `keychain --eval --agents ssh id_ed25519`
+
+# if Windows-side has control of ssh agent
+# export SSH_AUTH_SOCK=/mnt/c/Users/Thades/AppData/Local/ssh-agent.ssh
+# This one uses the "interop socket" whatever that is
+# export SSH_AUTH_SOCK=$(wslpath "$(powershell.exe -Command "[Environment]::GetEnvironmentVariable('SSH_AUTH_SOCK', 'Process')" | tr -d '\r')")
+export SSH_AUTH_SOCK=/mnt/c/Users/$USER/AppData/Local/ssh-agent.sock
 
 # for tmux
 export TERM="xterm-256color"
