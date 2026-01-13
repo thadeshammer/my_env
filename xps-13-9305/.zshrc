@@ -103,7 +103,7 @@ export ARCHFLAGS="-arch $(uname -m)"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-eval $(keychain --eval --agents ssh --noask github)
+eval $(keychain --eval --noask github)
 
 # starship needs to be invoked last
 eval "$(starship init zsh)"
