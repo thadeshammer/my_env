@@ -1,29 +1,14 @@
-# Pre P10K instant prompt init
-# ssh-agent for github
-eval "$(ssh-agent -s)"
-
-# go home and change default shell
-cd ~
-chsh -s /bin/zsh
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -75,7 +60,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -85,7 +70,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git k)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,54 +79,31 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+eval $(keychain --eval --agents ssh --noask github)
 
-export LESS=Xr
-
-# Python on windows is stupid. No matter what I do, libs all want to install to either
-# roaming OR local under AppData, and setting global in WSL does weird stuff,
-# so here's how I work around this stupidity.
-PYVER="311"
-PYTHONLOCAL="/mnt/c/Users/sahan/AppData/Local/Programs/Python/Python$PYVER"
-PYTHONROAM="/mnt/c/Users/sahan/AppData/Roaming/Programs/Python/Python$PYVER"
-PATH=$PATH:$PYTHONLOCAL:$PYTHONLOCAL/Scripts:$PYTHONLOCAL/site-packages:$PYTHONLOCAL/Include
-PATH=$PATH:$PYTHONLOCAL/Lib:$PYTHONLOCAL/Lib/site-packages
-PATH=$PATH:$PYTHONLOCAL/libs:$PYTHONLOCAL/libs/site-packages
-PATH=$PATH:$PYTHONROAM:$PYTHONROAM/Scripts:$PYTHONROAM/site-packages:$PYTHONROAM/Include
-PATH=$PATH:$PYTHONROAM/lib:$PYTHONROAM/lib/site-packages
-
-alias python="$PYTHONLOCAL/python.exe"
-alias python3="$PYTHONLOCAL/python.exe"
-alias py="$PYTHONLOCAL/python.exe"
-alias pip="$PYTHONLOCAL/Scripts/pip.exe"
-alias mypy="mypy.exe"
-
-export VISUAL="code -w"
-export EDITOR="$VISUAL"
-
-export PATH
-
-# ls colors from https://github.com/romkatv/powerlevel10k/issues/805
-export LS_COLORS='rs=0:no=00:mi=00:mh=00:ln=01;36:or=01;31:di=01;34:ow=04;01;34:st=34:tw=04;34:pi=01;33:so=01;33:do=01;33:bd=01;33:cd=01;33:su=01;35:sg=01;35:ca=01;35:ex=01;32:'
+# starship needs to be invoked last
+eval "$(starship init zsh)"
